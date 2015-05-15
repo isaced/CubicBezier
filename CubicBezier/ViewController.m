@@ -21,6 +21,11 @@
 @property (assign) CGPoint bezierPoint1;
 @property (assign) CGPoint bezierPoint2;
 
+@property (strong) CALayer *previewLayer1;
+@property (strong) CALayer *previewLayer2;
+
+@property (assign) CGFloat previewLayerXPosition;
+
 @end
 
 @implementation ViewController
@@ -80,8 +85,25 @@
     
     self.bezierTextField.stringValue = @"0.2,0.7,0.7,0.2";
     
-    self.bezierPreview1.backgroundColor = color1;
-    self.bezierPreview2.backgroundColor = color2;
+    // Animation Layer
+    
+    CGRect previewLayerRect = CGRectMake(50, 0, 50, 50);
+    
+    self.previewLayer1 = [CALayer layer];
+    self.previewLayer1.frame = previewLayerRect;
+    self.previewLayer1.backgroundColor = color1.CGColor;
+    self.previewLayer1.cornerRadius = 6.0;
+    [self.bezierPreview1.layer addSublayer:self.previewLayer1];
+    
+    self.previewLayer2 = [CALayer layer];
+    self.previewLayer2.frame = previewLayerRect;
+    self.previewLayer2.backgroundColor = color2.CGColor;
+    self.previewLayer2.cornerRadius = 6.0;
+    [self.bezierPreview2.layer addSublayer:self.previewLayer2];
+    
+    self.previewLayerXPosition = 50.0;
+    
+    [self goAnimation:nil];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -150,13 +172,26 @@
 - (IBAction)goAnimation:(id)sender{
 
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.x"];
-    animation.fromValue = @0.0;
-    animation.toValue = @100.0;
-    animation.duration = 2.0;
-    animation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:self.bezierPoint1.x :self.bezierPoint1.y :self.bezierPoint2.x :self.bezierPoint2.y];
-    [self.bezierPreview1.layer addAnimation:animation forKey:nil];
-    [self.bezierPreview2.layer addAnimation:animation forKey:nil];
-
+    animation.toValue = @(self.previewLayerXPosition);
+    animation.duration = 1.0;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    [self.previewLayer1 addAnimation:animation forKey:nil];
+    
+    CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@"position.x"];
+    animation2.toValue = @(self.previewLayerXPosition);
+    animation2.duration = 1.0;
+    animation2.timingFunction = [CAMediaTimingFunction functionWithControlPoints:self.bezierPoint2.x :self.bezierPoint2.y :self.bezierPoint2.x :self.bezierPoint2.y];
+    animation2.fillMode = kCAFillModeForwards;
+    animation2.removedOnCompletion = NO;
+    [self.previewLayer2 addAnimation:animation2 forKey:nil];
+    
+    // 折返位置
+    if (self.previewLayerXPosition == 50.0) {
+        self.previewLayerXPosition = 190.0;
+    }else{
+        self.previewLayerXPosition = 50.0;
+    }
 }
 
 @end

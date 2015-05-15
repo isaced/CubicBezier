@@ -39,6 +39,4 @@
     NSRectFill(dirtyRect);
 }
 
-- (BOOL) wantsDefaultClipping { return NO; } // thanks stackoverflow.com
-
 @end
