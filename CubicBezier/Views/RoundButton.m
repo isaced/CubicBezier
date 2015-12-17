@@ -28,15 +28,22 @@
     self.wantsLayer = YES;
     self.layer.masksToBounds = YES;
     self.layer.cornerRadius = RoundButtonDiameter / 2.0;
-    self.layer.borderWidth = 1.0;
-    self.layer.borderColor = [NSColor lightGrayColor].CGColor;
-    
     self.backgroundColor = [NSColor whiteColor];
 }
 
 -(void)drawRect:(NSRect)dirtyRect{
     [self.backgroundColor setFill];
     NSRectFill(dirtyRect);
+}
+
+-(void)setShowBorder:(BOOL)showBorder{
+    _showBorder = showBorder;
+    if (showBorder) {
+        self.layer.borderWidth = 1.0;
+        self.layer.borderColor = [NSColor lightGrayColor].CGColor;
+    }else{
+        self.layer.borderWidth = 0;
+    }
 }
 
 @end

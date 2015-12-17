@@ -14,4 +14,6 @@ static const CGFloat RoundButtonDiameter = 20.0;
 
 @property (nonatomic, strong) NSColor *backgroundColor;
 
+@property (nonatomic, assign) BOOL showBorder;
+
 @end
