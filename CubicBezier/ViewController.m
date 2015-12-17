@@ -174,14 +174,14 @@
 
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.x"];
     animation.toValue = @(self.previewLayerXPosition);
-    animation.duration = 1.0;
+    animation.duration = self.speedSlider.doubleValue;
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
     [self.previewLayer1 addAnimation:animation forKey:nil];
     
     CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@"position.x"];
     animation2.toValue = @(self.previewLayerXPosition);
-    animation2.duration = 1.0;
+    animation2.duration = self.speedSlider.doubleValue;
     animation2.timingFunction = [CAMediaTimingFunction functionWithControlPoints:self.bezierPoint2.x :self.bezierPoint2.y :self.bezierPoint2.x :self.bezierPoint2.y];
     animation2.fillMode = kCAFillModeForwards;
     animation2.removedOnCompletion = NO;

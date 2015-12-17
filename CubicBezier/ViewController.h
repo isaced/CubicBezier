@@ -18,6 +18,7 @@
 @property (strong) IBOutlet NSTextField *bezierTextField;
 @property (strong) IBOutlet BezierPreviewView *bezierPreview1;
 @property (strong) IBOutlet BezierPreviewView *bezierPreview2;
+@property (weak) IBOutlet NSSlider *speedSlider;
 
 - (IBAction)goAnimation:(id)sender;
 
