@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B94C6F1D1AA40EFE001F84A7 /* BezierPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = B94C6F1C1AA40EFE001F84A7 /* BezierPreviewView.m */; };
-		B94C6F1F1AA41852001F84A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94C6F1E1AA41852001F84A7 /* QuartzCore.framework */; };
 		B9D1E5F91AA186C5000C5854 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E5F81AA186C5000C5854 /* AppDelegate.m */; };
 		B9D1E5FB1AA186C5000C5854 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E5FA1AA186C5000C5854 /* main.m */; };
 		B9D1E5FE1AA186C5000C5854 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E5FD1AA186C5000C5854 /* ViewController.m */; };
@@ -32,7 +31,6 @@
 /* Begin PBXFileReference section */
 		B94C6F1B1AA40EFE001F84A7 /* BezierPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierPreviewView.h; sourceTree = "<group>"; };
 		B94C6F1C1AA40EFE001F84A7 /* BezierPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierPreviewView.m; sourceTree = "<group>"; };
-		B94C6F1E1AA41852001F84A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B9D1E5F21AA186C5000C5854 /* CubicBezier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubicBezier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D1E5F61AA186C5000C5854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9D1E5F71AA186C5000C5854 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B94C6F1F1AA41852001F84A7 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +70,6 @@
 		B9D1E5E91AA186C4000C5854 = {
 			isa = PBXGroup;
 			children = (
-				B94C6F1E1AA41852001F84A7 /* QuartzCore.framework */,
 				B9D1E5F41AA186C5000C5854 /* CubicBezier */,
 				B9D1E60B1AA186C5000C5854 /* CubicBezierTests */,
 				B9D1E5F31AA186C5000C5854 /* Products */,
