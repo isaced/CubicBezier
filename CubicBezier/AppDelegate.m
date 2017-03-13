@@ -22,6 +22,10 @@
     // Insert code here to tear down your application
 }
 
+- (IBAction)helpMenuAction:(NSMenuItem *)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/isaced/CubicBezier"]];
+}
+
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     return YES;
 }

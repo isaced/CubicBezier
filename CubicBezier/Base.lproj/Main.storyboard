@@ -153,7 +153,7 @@
                                     <items>
                                         <menuItem title="CubicBezier Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                                <action selector="helpMenuAction:" target="Voe-Tx-rLC" id="HWw-qO-bjt"/>
                                             </connections>
                                         </menuItem>
                                     </items>
