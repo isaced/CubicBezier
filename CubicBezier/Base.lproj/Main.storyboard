@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
@@ -198,39 +200,15 @@
                                 <rect key="frame" x="30" y="35" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qja-dY-PiK" customClass="BezierPreviewView">
-                                <rect key="frame" x="230" y="130" width="250" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </customView>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m86-Fc-0mH" customClass="BezierPreviewView">
-                                <rect key="frame" x="230" y="72" width="250" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hL-Fp-hmc">
-                                <rect key="frame" x="236" y="211" width="226" height="24"/>
+                                <rect key="frame" x="244" y="222" width="218" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0,0,0,0" id="wZd-MK-3Oc">
-                                    <font key="font" metaFont="systemBold" size="18"/>
+                                    <font key="font" metaFont="systemThin" size="24"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtr-5m-5mq">
-                                <rect key="frame" x="248" y="46" width="214" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" state="on" alignment="left" minValue="0.10000000000000001" maxValue="10" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="rcp-LA-fZP"/>
-                            </slider>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="87c-la-ZLi">
-                                <rect key="frame" x="306" y="13" width="87" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Go" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aSd-t4-YBB">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="goAnimation:" target="XfG-lQ-9wD" id="B4O-Sw-Z5a"/>
-                                </connections>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5m-vl-hTr">
                                 <rect key="frame" x="43" y="19" width="105" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -249,6 +227,62 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQI-SY-tZm">
+                                <rect key="frame" x="253" y="192" width="60" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Duration:" id="zbo-GD-eei">
+                                    <font key="font" metaFont="systemUltraLight" size="12"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aX-Yo-Qsh">
+                                <rect key="frame" x="415" y="192" width="30" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1.0s" id="gOZ-p4-dmj">
+                                    <font key="font" metaFont="systemThin" size="12"/>
+                                    <color key="textColor" name="windowFrameColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="87c-la-ZLi">
+                                <rect key="frame" x="404" y="5" width="62" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Go!" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aSd-t4-YBB">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="systemLight" size="13"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="goAnimation:" target="XfG-lQ-9wD" id="B4O-Sw-Z5a"/>
+                                </connections>
+                            </button>
+                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtr-5m-5mq">
+                                <rect key="frame" x="309" y="190" width="94" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="0.10000000000000001" maxValue="6" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="rcp-LA-fZP"/>
+                                <connections>
+                                    <action selector="speedSliderAction:" target="XfG-lQ-9wD" id="qyE-qm-nhp"/>
+                                </connections>
+                            </slider>
+                            <box fixedFrame="YES" title="Preview &amp; Compare" translatesAutoresizingMaskIntoConstraints="NO" id="5ur-1U-tzk">
+                                <rect key="frame" x="243" y="38" width="220" height="143"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="igE-Lv-sbO">
+                                    <rect key="frame" x="2" y="2" width="216" height="124"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qja-dY-PiK" customClass="BezierPreviewView">
+                                            <rect key="frame" x="8" y="67" width="200" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        </customView>
+                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m86-Fc-0mH" customClass="BezierPreviewView">
+                                            <rect key="frame" x="8" y="9" width="200" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        </customView>
+                                    </subviews>
+                                </view>
+                                <font key="titleFont" metaFont="systemUltraLight" size="12"/>
+                            </box>
                         </subviews>
                     </view>
                     <connections>
@@ -258,7 +292,8 @@
                         <outlet property="bezierPreview1" destination="qja-dY-PiK" id="g7g-E9-x9e"/>
                         <outlet property="bezierPreview2" destination="m86-Fc-0mH" id="C7a-kx-o59"/>
                         <outlet property="bezierTextField" destination="2hL-Fp-hmc" id="yX4-sg-WOf"/>
-                        <outlet property="speedSlider" destination="dtr-5m-5mq" id="Sa9-Ra-re6"/>
+                        <outlet property="speedSlider" destination="dtr-5m-5mq" id="1iS-a0-Mgk"/>
+                        <outlet property="speedTextField" destination="4aX-Yo-Qsh" id="cxe-ew-X53"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

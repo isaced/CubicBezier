@@ -86,12 +86,12 @@
     self.bezierBoardView.point1 = point1;
     self.bezierBoardView.point2 = point2;
     
-    self.bezierTextField.stringValue = @"0.2,0.7,0.7,0.2";
+    self.bezierTextField.stringValue = @"0.20,0.70,0.70,0.20";
     
     // Animation Layer
     
-    CGRect previewLayerRect = CGRectMake(50, 0, 50, 50);
-    
+    CGRect previewLayerRect = CGRectMake(0, 0, 50, 50);
+
     self.previewLayer1 = [CALayer layer];
     self.previewLayer1.frame = previewLayerRect;
     self.previewLayer1.backgroundColor = color1.CGColor;
@@ -104,7 +104,7 @@
     self.previewLayer2.cornerRadius = 6.0;
     [self.bezierPreview2.layer addSublayer:self.previewLayer2];
     
-    self.previewLayerXPosition = 50.0;
+    self.previewLayerXPosition = self.previewLayer1.bounds.size.width / 2.0;
     
     [self goAnimation:nil];
     
@@ -168,8 +168,6 @@
     
     [self.view setNeedsDisplay:YES];
     
-    [self updateBezierBoardLabels:bezierPoint];
-    
     NSLog(@"mouseDragged:%@",NSStringFromPoint(bezierPoint));
 }
 
@@ -203,10 +201,10 @@
     [self.previewLayer2 addAnimation:animation2 forKey:nil];
     
     // 折返位置
-    if (self.previewLayerXPosition == 50.0) {
-        self.previewLayerXPosition = 190.0;
+    if (self.previewLayerXPosition == self.previewLayer1.bounds.size.width / 2.0) {
+        self.previewLayerXPosition = self.bezierPreview1.bounds.size.width - (self.previewLayer1.bounds.size.width / 2.0);
     }else{
-        self.previewLayerXPosition = 50.0;
+        self.previewLayerXPosition = self.previewLayer1.bounds.size.width / 2.0;
     }
 }
 
@@ -223,6 +221,10 @@
     
     self.bezierBoardFooterTextField.stringValue = footerString;
     self.bezierBoardLeftTextField.stringValue = leftString;
+}
+
+- (IBAction)speedSliderAction:(NSSlider *)sender {
+    self.speedTextField.stringValue = [NSString stringWithFormat:@"%.1fs",sender.floatValue];
 }
 
 @end

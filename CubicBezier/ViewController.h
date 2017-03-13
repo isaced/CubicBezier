@@ -22,6 +22,7 @@
 
 @property (weak) IBOutlet NSTextField *bezierBoardFooterTextField;
 @property (weak) IBOutlet NSTextField *bezierBoardLeftTextField;
+@property (weak) IBOutlet NSTextField *speedTextField;
 
 - (IBAction)goAnimation:(id)sender;
 
