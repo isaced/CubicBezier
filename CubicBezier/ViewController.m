@@ -26,6 +26,8 @@
 
 @property (assign) CGFloat previewLayerXPosition;
 
+@property (strong) NSTrackingArea *trackingArea;
+
 @end
 
 @implementation ViewController
@@ -42,26 +44,27 @@
  */
 - (CGPoint)bezierPoint:(CGPoint)p{
     CGPoint point = [self.view convertPoint:p toView:self.bezierBoardView];
-    
-//    point.x -= RoundButtonDiameter / 2.0;
-//    point.y -= RoundButtonDiameter / 2.0;
-    
     point.x /= self.bezierBoardView.frame.size.width;
     point.y /= self.bezierBoardView.frame.size.height;
     return point;
 }
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 画板左边的文本框旋转90度
+    self.bezierBoardLeftTextField.frameRotation = 90;
+    
+    // 初始点
     self.bezierPoint1 = CGPointMake(0.2, 0.7);
     self.bezierPoint2 = CGPointMake(0.7, 0.2);
     
+    // 控制点颜色
     NSColor *color1 = [NSColor colorWithRed:244 / 255.0 green:0 blue:221 / 255.0 alpha:1];
     NSColor *color2 = [NSColor colorWithRed:35/255.0 green:154/255.0 blue:175/255.0 alpha:1];
     
+    // 顶点 （左下&右上）
     RoundButton *leftZero = [[RoundButton alloc] initWithFrame:NSMakeRect(self.bezierBoardView.frame.origin.x - RoundButtonDiameter / 2.0, self.bezierBoardView.frame.origin.y - RoundButtonDiameter / 2.0, RoundButtonDiameter, RoundButtonDiameter)];
     RoundButton *rightZero = [[RoundButton alloc] initWithFrame:NSMakeRect(self.bezierBoardView.frame.origin.x - RoundButtonDiameter / 2.0 + self.bezierBoardView.frame.size.width, self.bezierBoardView.frame.origin.y - RoundButtonDiameter / 2.0 + self.bezierBoardView.frame.size.height, RoundButtonDiameter, RoundButtonDiameter)];
     leftZero.showBorder = YES;
@@ -74,7 +77,6 @@
     self.roundButton1 = [[RoundButton alloc] initWithFrame:NSMakeRect(point1.x + self.bezierBoardView.frame.origin.x - RoundButtonDiameter / 2.0, point1.y + self.bezierBoardView.frame.origin.y - RoundButtonDiameter / 2.0, RoundButtonDiameter, RoundButtonDiameter)];
     self.roundButton1.backgroundColor = color1;
     [self.view addSubview:self.roundButton1];
-    
     
     CGPoint point2 = [self boardPoint:self.bezierPoint2];
     self.roundButton2 = [[RoundButton alloc] initWithFrame:NSMakeRect(point2.x + self.bezierBoardView.frame.origin.x - RoundButtonDiameter / 2.0, point2.y + self.bezierBoardView.frame.origin.y - RoundButtonDiameter / 2.0, RoundButtonDiameter, RoundButtonDiameter)];
@@ -105,6 +107,11 @@
     self.previewLayerXPosition = 50.0;
     
     [self goAnimation:nil];
+    
+    // TrackingArea
+    NSTrackingAreaOptions options = (NSTrackingActiveAlways | NSTrackingInVisibleRect | NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved);
+    self.trackingArea = [[NSTrackingArea alloc] initWithRect:[self.view bounds] options:options owner:self userInfo:nil];
+    [self.view addTrackingArea:self.trackingArea];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -161,6 +168,8 @@
     
     [self.view setNeedsDisplay:YES];
     
+    [self updateBezierBoardLabels:bezierPoint];
+    
     NSLog(@"mouseDragged:%@",NSStringFromPoint(bezierPoint));
 }
 
@@ -169,6 +178,12 @@
     self.roundButton2Up = NO;
     NSLog(@"mouseUp");
 }
+
+-(void)mouseMoved:(NSEvent *)event {
+    CGPoint bezierPoint = [self bezierPoint:event.locationInWindow];
+    [self updateBezierBoardLabels:bezierPoint];
+}
+
 
 - (IBAction)goAnimation:(id)sender{
 
@@ -193,6 +208,21 @@
     }else{
         self.previewLayerXPosition = 50.0;
     }
+}
+
+#pragma mark -
+
+- (void)updateBezierBoardLabels:(CGPoint)bezierPoint {
+    NSString *leftString = @"PROGRESSION";
+    NSString *footerString = @"TIME";
+    
+    if (bezierPoint.x >= 0 && bezierPoint.x <= 1) {
+        footerString = [NSString stringWithFormat:@"TIME (%.f%%)",bezierPoint.x * 100];
+        leftString = [NSString stringWithFormat:@"PROGRESSION (%.f%%)",bezierPoint.y * 100];
+    }
+    
+    self.bezierBoardFooterTextField.stringValue = footerString;
+    self.bezierBoardLeftTextField.stringValue = leftString;
 }
 
 @end
