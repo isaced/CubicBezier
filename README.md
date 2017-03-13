@@ -8,7 +8,7 @@ CubicBezier Generator for macOS,This Tools is inspired by [cubic-bezier.com](htt
 
 [Release](https://github.com/isaced/CubicBezier/releases)
 
-### To be continued...
+## About
 
 这是一个 macOS 的贝塞尔曲线生成器小工具，可以直观的拖动小圆点来调整参数并通过动画预览对比，方便我们写动画。
 
