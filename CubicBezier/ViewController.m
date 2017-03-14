@@ -17,9 +17,10 @@
 // 标识两个圆点的松开状态
 @property (assign) BOOL roundButton1Up;
 @property (assign) BOOL roundButton2Up;
+@property (assign) BOOL blankTouchUp;
 
-@property (assign) CGPoint bezierPoint1;
-@property (assign) CGPoint bezierPoint2;
+@property (assign) CGPoint bezierDataPoint1;
+@property (assign) CGPoint bezierDataPoint2;
 
 @property (strong) CALayer *previewLayer1;
 @property (strong) CALayer *previewLayer2;
@@ -32,8 +33,14 @@
 
 @implementation ViewController
 
-// 坐标转换
+#pragma mark -
 
+/// 比较两点间距离
+- (float)distanceBetween:(CGPoint)p1 and:(CGPoint)p2{
+    return sqrt(pow(p2.x-p1.x,2)+pow(p2.y-p1.y,2));
+}
+
+/// 坐标转换：转换成相对画板的坐标
 - (CGPoint)boardPoint:(CGPoint)p{
     return CGPointMake(self.bezierBoardView.frame.origin.x + p.x * 200.0,
                        self.bezierBoardView.frame.origin.y + p.y * 200.0);
@@ -57,8 +64,8 @@
     self.bezierBoardLeftTextField.frameRotation = 90;
     
     // 初始点
-    self.bezierPoint1 = CGPointMake(0.2, 0.7);
-    self.bezierPoint2 = CGPointMake(0.7, 0.2);
+    self.bezierDataPoint1 = CGPointMake(0.2, 0.7);
+    self.bezierDataPoint2 = CGPointMake(0.7, 0.2);
     
     // 控制点颜色
     NSColor *color1 = [NSColor colorWithRed:244 / 255.0 green:0 blue:221 / 255.0 alpha:1];
@@ -73,12 +80,12 @@
     [self.view addSubview:rightZero];
     
     // 动态点
-    CGPoint point1 = [self boardPoint:self.bezierPoint1];
+    CGPoint point1 = [self boardPoint:self.bezierDataPoint1];
     self.roundButton1 = [[RoundButton alloc] initWithFrame:NSMakeRect(point1.x + self.bezierBoardView.frame.origin.x - RoundButtonDiameter / 2.0, point1.y + self.bezierBoardView.frame.origin.y - RoundButtonDiameter / 2.0, RoundButtonDiameter, RoundButtonDiameter)];
     self.roundButton1.backgroundColor = color1;
     [self.view addSubview:self.roundButton1];
     
-    CGPoint point2 = [self boardPoint:self.bezierPoint2];
+    CGPoint point2 = [self boardPoint:self.bezierDataPoint2];
     self.roundButton2 = [[RoundButton alloc] initWithFrame:NSMakeRect(point2.x + self.bezierBoardView.frame.origin.x - RoundButtonDiameter / 2.0, point2.y + self.bezierBoardView.frame.origin.y - RoundButtonDiameter / 2.0, RoundButtonDiameter, RoundButtonDiameter)];
     self.roundButton2.backgroundColor = color2;
     [self.view addSubview:self.roundButton2];
@@ -122,22 +129,48 @@
 
 -(void)mouseDown:(NSEvent *)theEvent{
     if (NSPointInRect(theEvent.locationInWindow, self.roundButton1.frame)) {
+        // 如果点中第一个点
         self.roundButton1Up = YES;
     }else if(NSPointInRect(theEvent.locationInWindow, self.roundButton2.frame)){
+        // 如果点中的第二个点
         self.roundButton2Up = YES;
+    }else if(NSPointInRect(theEvent.locationInWindow, self.bezierBoardView.frame)){
+        // 如果点的空白地方（画板内）
+        self.blankTouchUp = YES;
     }
     NSLog(@"mouseDown:%@",NSStringFromPoint(theEvent.locationInWindow));
 }
 
 -(void)mouseDragged:(NSEvent *)theEvent{
+    [self updateBezierBoard:theEvent];
+    NSLog(@"mouseDragged");
+}
+
+-(void)mouseUp:(NSEvent *)theEvent{
+    [self updateBezierBoard:theEvent];
     
+    // 清除状态
+    self.roundButton1Up = NO;
+    self.roundButton2Up = NO;
+    self.blankTouchUp = NO;
+    
+    NSLog(@"mouseUp");
+}
+
+-(void)mouseMoved:(NSEvent *)event {
+    CGPoint bezierPoint = [self bezierPoint:event.locationInWindow];
+    [self updateBezierBoardLabels:bezierPoint];
+}
+
+- (void)updateBezierBoard:(NSEvent *)theEvent {
     // 贝塞尔曲线点
     CGPoint bezierPoint = [self bezierPoint:theEvent.locationInWindow];
-
+    
     // 计算出 圆点 Center
     CGPoint roundButtonCenter = CGPointMake(theEvent.locationInWindow.x - RoundButtonDiameter / 2.0, theEvent.locationInWindow.y - RoundButtonDiameter / 2.0);
     CGPoint roundButtonCenterForBoard = [self.view convertPoint:theEvent.locationInWindow toView:self.bezierBoardView];
     
+    // 边界判断
     if (bezierPoint.x < 0) {
         bezierPoint.x = 0;
         roundButtonCenter.x = self.bezierBoardView.frame.origin.x - RoundButtonDiameter / 2.0;
@@ -150,38 +183,36 @@
     }
     
     // 给予新的位置和重绘点，记录贝塞尔曲线点
-    CGRect newFrame = CGRectMake(roundButtonCenter.x,
-                                  roundButtonCenter.y,
-                                  RoundButtonDiameter,
-                                  RoundButtonDiameter);
+    CGRect newFrame = CGRectMake(roundButtonCenter.x, roundButtonCenter.y, RoundButtonDiameter, RoundButtonDiameter);
     if (self.roundButton1Up) {
+        // 按住到第一个点的
         self.roundButton1.frame = newFrame;
         self.bezierBoardView.point1 = roundButtonCenterForBoard;
-        self.bezierPoint1 = bezierPoint;
+        self.bezierDataPoint1 = bezierPoint;
     }else if (self.roundButton2Up){
+        // 按住到第二个点的
         self.roundButton2.frame = newFrame;
         self.bezierBoardView.point2 = roundButtonCenterForBoard;
-        self.bezierPoint2 = bezierPoint;
+        self.bezierDataPoint2 = bezierPoint;
+    }else if(self.blankTouchUp) {
+        // 没点到点上，查找最近的点
+        double dist1 = [self distanceBetween:roundButtonCenter and:self.bezierDataPoint1];
+        double dist2 = [self distanceBetween:roundButtonCenter and:self.bezierDataPoint2];
+        if (dist1 < dist2) {
+            self.roundButton1.frame = newFrame;
+            self.bezierDataPoint1 = roundButtonCenter;
+            self.bezierBoardView.point1 = roundButtonCenterForBoard;
+        }else{
+            self.roundButton2.frame = newFrame;
+            self.bezierDataPoint2 = roundButtonCenter;
+            self.bezierBoardView.point2 = roundButtonCenterForBoard;
+        }
     }
     
-    self.bezierTextField.stringValue = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2f",self.bezierPoint1.x,self.bezierPoint1.y,self.bezierPoint2.x,self.bezierPoint2.y];
+    self.bezierTextField.stringValue = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2f",self.bezierDataPoint1.x,self.bezierDataPoint1.y,self.bezierDataPoint2.x,self.bezierDataPoint2.y];
     
     [self.view setNeedsDisplay:YES];
-    
-    NSLog(@"mouseDragged:%@",NSStringFromPoint(bezierPoint));
 }
-
--(void)mouseUp:(NSEvent *)theEvent{
-    self.roundButton1Up = NO;
-    self.roundButton2Up = NO;
-    NSLog(@"mouseUp");
-}
-
--(void)mouseMoved:(NSEvent *)event {
-    CGPoint bezierPoint = [self bezierPoint:event.locationInWindow];
-    [self updateBezierBoardLabels:bezierPoint];
-}
-
 
 - (IBAction)goAnimation:(id)sender{
 
@@ -195,7 +226,7 @@
     CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@"position.x"];
     animation2.toValue = @(self.previewLayerXPosition);
     animation2.duration = self.speedSlider.doubleValue;
-    animation2.timingFunction = [CAMediaTimingFunction functionWithControlPoints:self.bezierPoint2.x :self.bezierPoint2.y :self.bezierPoint2.x :self.bezierPoint2.y];
+    animation2.timingFunction = [CAMediaTimingFunction functionWithControlPoints:self.bezierDataPoint2.x :self.bezierDataPoint2.y :self.bezierDataPoint2.x :self.bezierDataPoint2.y];
     animation2.fillMode = kCAFillModeForwards;
     animation2.removedOnCompletion = NO;
     [self.previewLayer2 addAnimation:animation2 forKey:nil];
