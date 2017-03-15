@@ -16,9 +16,9 @@
 @property (strong) RoundButton *roundButton2;
 
 // 标识两个圆点的松开状态
-@property (assign) BOOL roundButton1Up;
-@property (assign) BOOL roundButton2Up;
-@property (assign) BOOL blankTouchUp;
+@property (assign) BOOL roundButton1Down;
+@property (assign) BOOL roundButton2Down;
+@property (assign) BOOL blankTouchDown;
 
 @property (assign) CGPoint bezierDataPoint1;
 @property (assign) CGPoint bezierDataPoint2;
@@ -153,13 +153,13 @@
 -(void)mouseDown:(NSEvent *)theEvent{
     if (NSPointInRect(theEvent.locationInWindow, self.roundButton1.frame)) {
         // 如果点中第一个点
-        self.roundButton1Up = YES;
+        self.roundButton1Down = YES;
     }else if(NSPointInRect(theEvent.locationInWindow, self.roundButton2.frame)){
         // 如果点中的第二个点
-        self.roundButton2Up = YES;
+        self.roundButton2Down = YES;
     }else if(NSPointInRect(theEvent.locationInWindow, self.bezierBoardView.frame)){
         // 如果点的空白地方（画板内）
-        self.blankTouchUp = YES;
+        self.blankTouchDown = YES;
     }
     NSLog(@"mouseDown:%@",NSStringFromPoint(theEvent.locationInWindow));
 }
@@ -173,9 +173,9 @@
     [self updateBezierBoard:theEvent];
     
     // 清除状态
-    self.roundButton1Up = NO;
-    self.roundButton2Up = NO;
-    self.blankTouchUp = NO;
+    self.roundButton1Down = NO;
+    self.roundButton2Down = NO;
+    self.blankTouchDown = NO;
     
     NSLog(@"mouseUp");
 }
@@ -207,17 +207,17 @@
     
     // 给予新的位置和重绘点，记录贝塞尔曲线点
     CGRect newFrame = CGRectMake(roundButtonCenter.x, roundButtonCenter.y, RoundButtonDiameter, RoundButtonDiameter);
-    if (self.roundButton1Up) {
+    if (self.roundButton1Down) {
         // 按住到第一个点的
         self.roundButton1.frame = newFrame;
         self.bezierBoardView.point1 = roundButtonCenterForBoard;
         self.bezierDataPoint1 = bezierPoint;
-    }else if (self.roundButton2Up){
+    }else if (self.roundButton2Down){
         // 按住到第二个点的
         self.roundButton2.frame = newFrame;
         self.bezierBoardView.point2 = roundButtonCenterForBoard;
         self.bezierDataPoint2 = bezierPoint;
-    }else if(self.blankTouchUp) {
+    }else if(self.blankTouchDown) {
         // 没点到点上，查找最近的点
         double dist1 = [self distanceBetween:roundButtonCenter and:self.bezierBoardView.point1];
         double dist2 = [self distanceBetween:roundButtonCenter and:self.bezierBoardView.point2];
@@ -225,11 +225,14 @@
             self.roundButton1.frame = newFrame;
             self.bezierDataPoint1 = bezierPoint;
             self.bezierBoardView.point1 = roundButtonCenterForBoard;
+            self.roundButton1Down = YES;
         }else{
             self.roundButton2.frame = newFrame;
             self.bezierDataPoint2 = bezierPoint;
             self.bezierBoardView.point2 = roundButtonCenterForBoard;
+            self.roundButton2Down = YES;
         }
+        self.blankTouchDown = NO;
     }
     
     self.bezierTextField.stringValue = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2f",self.bezierDataPoint1.x,self.bezierDataPoint1.y,self.bezierDataPoint2.x,self.bezierDataPoint2.y];
