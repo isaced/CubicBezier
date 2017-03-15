@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <QuartzCore/CoreAnimation.h>
+#import "BezierThumbnailsPainter.h"
 
 @interface ViewController()
 
@@ -21,6 +22,9 @@
 
 @property (assign) CGPoint bezierDataPoint1;
 @property (assign) CGPoint bezierDataPoint2;
+
+@property (assign) CGPoint originalBezierDataPoint1;
+@property (assign) CGPoint originalBezierDataPoint2;
 
 @property (strong) CALayer *previewLayer1;
 @property (strong) CALayer *previewLayer2;
@@ -67,6 +71,9 @@
     self.bezierDataPoint1 = CGPointMake(0.2, 0.7);
     self.bezierDataPoint2 = CGPointMake(0.7, 0.2);
     
+    self.originalBezierDataPoint1 = CGPointMake(0, 0);
+    self.originalBezierDataPoint2 = CGPointMake(1, 1);
+    
     // 控制点颜色
     NSColor *color1 = [NSColor colorWithRed:244 / 255.0 green:0 blue:221 / 255.0 alpha:1];
     NSColor *color2 = [NSColor colorWithRed:35/255.0 green:154/255.0 blue:175/255.0 alpha:1];
@@ -103,12 +110,14 @@
     self.previewLayer1.frame = previewLayerRect;
     self.previewLayer1.backgroundColor = color1.CGColor;
     self.previewLayer1.cornerRadius = 6.0;
+    self.previewLayer1.masksToBounds = YES;
     [self.bezierPreview1.layer addSublayer:self.previewLayer1];
     
     self.previewLayer2 = [CALayer layer];
     self.previewLayer2.frame = previewLayerRect;
     self.previewLayer2.backgroundColor = color2.CGColor;
     self.previewLayer2.cornerRadius = 6.0;
+    self.previewLayer2.masksToBounds = YES;
     [self.bezierPreview2.layer addSublayer:self.previewLayer2];
     
     self.previewLayerXPosition = self.previewLayer1.bounds.size.width / 2.0;
@@ -119,12 +128,26 @@
     NSTrackingAreaOptions options = (NSTrackingActiveAlways | NSTrackingInVisibleRect | NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved);
     self.trackingArea = [[NSTrackingArea alloc] initWithRect:[self.view bounds] options:options owner:self userInfo:nil];
     [self.view addTrackingArea:self.trackingArea];
+    
+    [self updateBezierThumbnailsAll:YES];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
 
     // Update the view, if already loaded.
+}
+
+- (void) updateBezierThumbnailsAll:(BOOL)all {
+    NSImage *bezierThumbnailsImage = [BezierThumbnailsPainter drawWithSize:self.previewLayer1.bounds.size point1:self.bezierDataPoint1 point2:self.bezierDataPoint2];
+    self.previewLayer1.contents = bezierThumbnailsImage;
+    
+    if (all) {
+        NSImage *bezierThumbnailsImage2 = [BezierThumbnailsPainter drawWithSize:self.previewLayer1.bounds.size
+                                                                         point1:self.originalBezierDataPoint1
+                                                                         point2:self.originalBezierDataPoint2];
+        self.previewLayer2.contents = bezierThumbnailsImage2;
+    }
 }
 
 -(void)mouseDown:(NSEvent *)theEvent{
@@ -212,6 +235,7 @@
     self.bezierTextField.stringValue = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2f",self.bezierDataPoint1.x,self.bezierDataPoint1.y,self.bezierDataPoint2.x,self.bezierDataPoint2.y];
     
     [self.view setNeedsDisplay:YES];
+    [self updateBezierThumbnailsAll:NO];
 }
 
 - (IBAction)goAnimation:(id)sender{
@@ -221,12 +245,13 @@
     animation.duration = self.speedSlider.doubleValue;
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
+    animation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:self.bezierDataPoint2.x :self.bezierDataPoint2.y :self.bezierDataPoint2.x :self.bezierDataPoint2.y];
     [self.previewLayer1 addAnimation:animation forKey:nil];
     
     CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@"position.x"];
     animation2.toValue = @(self.previewLayerXPosition);
     animation2.duration = self.speedSlider.doubleValue;
-    animation2.timingFunction = [CAMediaTimingFunction functionWithControlPoints:self.bezierDataPoint2.x :self.bezierDataPoint2.y :self.bezierDataPoint2.x :self.bezierDataPoint2.y];
+    animation2.timingFunction = [CAMediaTimingFunction functionWithControlPoints:self.originalBezierDataPoint1.x :self.originalBezierDataPoint1.y :self.originalBezierDataPoint1.x :self.originalBezierDataPoint1.y];
     animation2.fillMode = kCAFillModeForwards;
     animation2.removedOnCompletion = NO;
     [self.previewLayer2 addAnimation:animation2 forKey:nil];

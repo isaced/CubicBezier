@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BCAB5461E78F5180038DDC1 /* BezierThumbnailsPainter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCAB5451E78F5180038DDC1 /* BezierThumbnailsPainter.m */; };
 		B94C6F1D1AA40EFE001F84A7 /* BezierPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = B94C6F1C1AA40EFE001F84A7 /* BezierPreviewView.m */; };
 		B9D1E5F91AA186C5000C5854 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E5F81AA186C5000C5854 /* AppDelegate.m */; };
 		B9D1E5FB1AA186C5000C5854 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E5FA1AA186C5000C5854 /* main.m */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BCAB5441E78F5180038DDC1 /* BezierThumbnailsPainter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierThumbnailsPainter.h; sourceTree = "<group>"; };
+		0BCAB5451E78F5180038DDC1 /* BezierThumbnailsPainter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierThumbnailsPainter.m; sourceTree = "<group>"; };
 		B94C6F1B1AA40EFE001F84A7 /* BezierPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierPreviewView.h; sourceTree = "<group>"; };
 		B94C6F1C1AA40EFE001F84A7 /* BezierPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierPreviewView.m; sourceTree = "<group>"; };
 		B9D1E5F21AA186C5000C5854 /* CubicBezier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubicBezier.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +70,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BCAB5431E78F4B20038DDC1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0BCAB5441E78F5180038DDC1 /* BezierThumbnailsPainter.h */,
+				0BCAB5451E78F5180038DDC1 /* BezierThumbnailsPainter.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B9D1E5E91AA186C4000C5854 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +100,7 @@
 		B9D1E5F41AA186C5000C5854 /* CubicBezier */ = {
 			isa = PBXGroup;
 			children = (
+				0BCAB5431E78F4B20038DDC1 /* Utils */,
 				B9D1E6181AA186DE000C5854 /* Views */,
 				B9D1E5F71AA186C5000C5854 /* AppDelegate.h */,
 				B9D1E5F81AA186C5000C5854 /* AppDelegate.m */,
@@ -241,6 +254,7 @@
 				B9D1E61B1AA186EE000C5854 /* BezierBoardView.m in Sources */,
 				B9D1E61E1AA18708000C5854 /* RoundButton.m in Sources */,
 				B9D1E5FE1AA186C5000C5854 /* ViewController.m in Sources */,
+				0BCAB5461E78F5180038DDC1 /* BezierThumbnailsPainter.m in Sources */,
 				B9D1E5FB1AA186C5000C5854 /* main.m in Sources */,
 				B9D1E5F91AA186C5000C5854 /* AppDelegate.m in Sources */,
 			);

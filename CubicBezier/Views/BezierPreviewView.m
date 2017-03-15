@@ -14,8 +14,8 @@
     if ([super initWithCoder:coder]) {
         // init
         self.wantsLayer = YES;
-        
     }
     return self;
 }
+
 @end
