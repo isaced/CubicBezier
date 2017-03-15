@@ -264,6 +264,17 @@
                                     <action selector="speedSliderAction:" target="XfG-lQ-9wD" id="qyE-qm-nhp"/>
                                 </connections>
                             </slider>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4s-2o-tak">
+                                <rect key="frame" x="423" y="154" width="37" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="icon-library" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="pga-QC-KKW">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="XLg-lK-4d7" kind="popover" popoverAnchorView="a4s-2o-tak" popoverBehavior="t" preferredEdge="maxX" id="uXQ-yK-NgB"/>
+                                </connections>
+                            </button>
                             <box fixedFrame="YES" title="Preview &amp; Compare" translatesAutoresizingMaskIntoConstraints="NO" id="5ur-1U-tzk">
                                 <rect key="frame" x="243" y="38" width="220" height="143"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -300,5 +311,57 @@
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
+        <!--Library View Controller-->
+        <scene sceneID="TbV-HE-S62">
+            <objects>
+                <viewController id="XLg-lK-4d7" customClass="LibraryViewController" sceneMemberID="viewController">
+                    <view key="view" id="15r-wu-i21">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="428"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqS-q4-K75">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="428"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="Tpd-sH-DGG">
+                                    <rect key="frame" x="1" y="1" width="98" height="426"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView ambiguous="YES" id="ymE-fk-0ly">
+                                            <rect key="frame" x="0.0" y="0.0" width="98" height="426"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="Myk-Nh-lmQ">
+                                                <size key="itemSize" width="50" height="50"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="XLg-lK-4d7" id="zNo-yb-1Uq"/>
+                                                <outlet property="delegate" destination="XLg-lK-4d7" id="emX-AM-gM1"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <edgeInsets key="contentInsets" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="cEl-Mc-U2y">
+                                    <rect key="frame" x="1" y="398" width="98" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="OYU-gt-U13">
+                                    <rect key="frame" x="83" y="5" width="16" height="422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ymE-fk-0ly" id="gg2-2K-6fV"/>
+                    </connections>
+                </viewController>
+                <customObject id="L9k-Si-AJf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="482" y="734"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="icon-library" width="16" height="16"/>
+    </resources>
 </document>

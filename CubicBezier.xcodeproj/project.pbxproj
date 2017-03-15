@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B509B8C1E79348D00EFA64C /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B509B891E79348D00EFA64C /* LibraryViewController.m */; };
+		0B509B8D1E79348D00EFA64C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B509B8B1E79348D00EFA64C /* ViewController.m */; };
+		0B509B921E7938C700EFA64C /* LibraryCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B509B901E7938C700EFA64C /* LibraryCollectionViewItem.m */; };
+		0B509B931E7938C700EFA64C /* LibraryCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B509B911E7938C700EFA64C /* LibraryCollectionViewItem.xib */; };
+		0B509B971E793F2F00EFA64C /* ControlPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B509B961E793F2F00EFA64C /* ControlPoint.m */; };
 		0BCAB5461E78F5180038DDC1 /* BezierThumbnailsPainter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCAB5451E78F5180038DDC1 /* BezierThumbnailsPainter.m */; };
 		B94C6F1D1AA40EFE001F84A7 /* BezierPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = B94C6F1C1AA40EFE001F84A7 /* BezierPreviewView.m */; };
 		B9D1E5F91AA186C5000C5854 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E5F81AA186C5000C5854 /* AppDelegate.m */; };
 		B9D1E5FB1AA186C5000C5854 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E5FA1AA186C5000C5854 /* main.m */; };
-		B9D1E5FE1AA186C5000C5854 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E5FD1AA186C5000C5854 /* ViewController.m */; };
 		B9D1E6001AA186C5000C5854 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9D1E5FF1AA186C5000C5854 /* Images.xcassets */; };
 		B9D1E6031AA186C5000C5854 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D1E6011AA186C5000C5854 /* Main.storyboard */; };
 		B9D1E60F1AA186C5000C5854 /* CubicBezierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E60E1AA186C5000C5854 /* CubicBezierTests.m */; };
@@ -30,6 +34,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B509B881E79348D00EFA64C /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
+		0B509B891E79348D00EFA64C /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
+		0B509B8A1E79348D00EFA64C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0B509B8B1E79348D00EFA64C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0B509B8F1E7938C700EFA64C /* LibraryCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryCollectionViewItem.h; sourceTree = "<group>"; };
+		0B509B901E7938C700EFA64C /* LibraryCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryCollectionViewItem.m; sourceTree = "<group>"; };
+		0B509B911E7938C700EFA64C /* LibraryCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LibraryCollectionViewItem.xib; sourceTree = "<group>"; };
+		0B509B951E793F2F00EFA64C /* ControlPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlPoint.h; sourceTree = "<group>"; };
+		0B509B961E793F2F00EFA64C /* ControlPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlPoint.m; sourceTree = "<group>"; };
 		0BCAB5441E78F5180038DDC1 /* BezierThumbnailsPainter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierThumbnailsPainter.h; sourceTree = "<group>"; };
 		0BCAB5451E78F5180038DDC1 /* BezierThumbnailsPainter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierThumbnailsPainter.m; sourceTree = "<group>"; };
 		B94C6F1B1AA40EFE001F84A7 /* BezierPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierPreviewView.h; sourceTree = "<group>"; };
@@ -39,8 +52,6 @@
 		B9D1E5F71AA186C5000C5854 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9D1E5F81AA186C5000C5854 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B9D1E5FA1AA186C5000C5854 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B9D1E5FC1AA186C5000C5854 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B9D1E5FD1AA186C5000C5854 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B9D1E5FF1AA186C5000C5854 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B9D1E6021AA186C5000C5854 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B9D1E6081AA186C5000C5854 /* CubicBezierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CubicBezierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +81,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B509B871E79348D00EFA64C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0B509B881E79348D00EFA64C /* LibraryViewController.h */,
+				0B509B891E79348D00EFA64C /* LibraryViewController.m */,
+				0B509B8A1E79348D00EFA64C /* ViewController.h */,
+				0B509B8B1E79348D00EFA64C /* ViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0B509B8E1E7938B600EFA64C /* LibraryCollectionItem */ = {
+			isa = PBXGroup;
+			children = (
+				0B509B8F1E7938C700EFA64C /* LibraryCollectionViewItem.h */,
+				0B509B901E7938C700EFA64C /* LibraryCollectionViewItem.m */,
+				0B509B911E7938C700EFA64C /* LibraryCollectionViewItem.xib */,
+			);
+			path = LibraryCollectionItem;
+			sourceTree = "<group>";
+		};
+		0B509B941E793F2300EFA64C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B509B951E793F2F00EFA64C /* ControlPoint.h */,
+				0B509B961E793F2F00EFA64C /* ControlPoint.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0BCAB5431E78F4B20038DDC1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,12 +141,12 @@
 		B9D1E5F41AA186C5000C5854 /* CubicBezier */ = {
 			isa = PBXGroup;
 			children = (
+				0B509B941E793F2300EFA64C /* Models */,
 				0BCAB5431E78F4B20038DDC1 /* Utils */,
 				B9D1E6181AA186DE000C5854 /* Views */,
+				0B509B871E79348D00EFA64C /* Controllers */,
 				B9D1E5F71AA186C5000C5854 /* AppDelegate.h */,
 				B9D1E5F81AA186C5000C5854 /* AppDelegate.m */,
-				B9D1E5FC1AA186C5000C5854 /* ViewController.h */,
-				B9D1E5FD1AA186C5000C5854 /* ViewController.m */,
 				B9D1E5FF1AA186C5000C5854 /* Images.xcassets */,
 				B9D1E6011AA186C5000C5854 /* Main.storyboard */,
 				B9D1E5F51AA186C5000C5854 /* Supporting Files */,
@@ -142,6 +183,7 @@
 		B9D1E6181AA186DE000C5854 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B509B8E1E7938B600EFA64C /* LibraryCollectionItem */,
 				B9D1E6191AA186EE000C5854 /* BezierBoardView.h */,
 				B9D1E61A1AA186EE000C5854 /* BezierBoardView.m */,
 				B9D1E61C1AA18708000C5854 /* RoundButton.h */,
@@ -232,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9D1E6001AA186C5000C5854 /* Images.xcassets in Resources */,
+				0B509B931E7938C700EFA64C /* LibraryCollectionViewItem.xib in Resources */,
 				B9D1E6031AA186C5000C5854 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,9 +294,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B94C6F1D1AA40EFE001F84A7 /* BezierPreviewView.m in Sources */,
+				0B509B8C1E79348D00EFA64C /* LibraryViewController.m in Sources */,
+				0B509B971E793F2F00EFA64C /* ControlPoint.m in Sources */,
+				0B509B8D1E79348D00EFA64C /* ViewController.m in Sources */,
+				0B509B921E7938C700EFA64C /* LibraryCollectionViewItem.m in Sources */,
 				B9D1E61B1AA186EE000C5854 /* BezierBoardView.m in Sources */,
 				B9D1E61E1AA18708000C5854 /* RoundButton.m in Sources */,
-				B9D1E5FE1AA186C5000C5854 /* ViewController.m in Sources */,
 				0BCAB5461E78F5180038DDC1 /* BezierThumbnailsPainter.m in Sources */,
 				B9D1E5FB1AA186C5000C5854 /* main.m in Sources */,
 				B9D1E5F91AA186C5000C5854 /* AppDelegate.m in Sources */,
