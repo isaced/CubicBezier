@@ -19,6 +19,6 @@
  @param point2 secend control point
  @return image for thumbnails
  */
-+ (NSImage *)drawWithSize:(CGSize)size point1:(CGPoint)point1 point2:(CGPoint)point2;
++ (NSImage *)drawWithSize:(CGSize)size point1:(CGPoint)point1 point2:(CGPoint)point2 inset:(CGFloat)inset;
 
 @end

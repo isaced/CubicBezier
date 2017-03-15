@@ -68,8 +68,8 @@
     self.bezierBoardLeftTextField.frameRotation = 90;
     
     // 初始点
-    self.bezierDataPoint1 = CGPointMake(0.2, 0.7);
-    self.bezierDataPoint2 = CGPointMake(0.7, 0.2);
+    self.bezierDataPoint1 = CGPointMake(0.17, 0.67);
+    self.bezierDataPoint2 = CGPointMake(0.83, 0.67);
     
     self.originalBezierDataPoint1 = CGPointMake(0, 0);
     self.originalBezierDataPoint2 = CGPointMake(1, 1);
@@ -100,7 +100,7 @@
     self.bezierBoardView.point1 = point1;
     self.bezierBoardView.point2 = point2;
     
-    self.bezierTextField.stringValue = @"0.20,0.70,0.70,0.20";
+    self.bezierTextField.stringValue = @"0.17,0.67,0.83,0.67";
     
     // Animation Layer
     
@@ -139,13 +139,13 @@
 }
 
 - (void) updateBezierThumbnailsAll:(BOOL)all {
-    NSImage *bezierThumbnailsImage = [BezierThumbnailsPainter drawWithSize:self.previewLayer1.bounds.size point1:self.bezierDataPoint1 point2:self.bezierDataPoint2];
+    NSImage *bezierThumbnailsImage = [BezierThumbnailsPainter drawWithSize:self.previewLayer1.bounds.size point1:self.bezierDataPoint1 point2:self.bezierDataPoint2 inset:0.1];
     self.previewLayer1.contents = bezierThumbnailsImage;
     
     if (all) {
         NSImage *bezierThumbnailsImage2 = [BezierThumbnailsPainter drawWithSize:self.previewLayer1.bounds.size
                                                                          point1:self.originalBezierDataPoint1
-                                                                         point2:self.originalBezierDataPoint2];
+                                                                         point2:self.originalBezierDataPoint2 inset:0.1];
         self.previewLayer2.contents = bezierThumbnailsImage2;
     }
 }

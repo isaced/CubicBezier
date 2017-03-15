@@ -62,7 +62,7 @@
 }
 
 - (NSImage *)thumbnailsImage {
-    return [BezierThumbnailsPainter drawWithSize:CGSizeMake(50, 50) point1:self.point1 point2:self.point2];
+    return [BezierThumbnailsPainter drawWithSize:CGSizeMake(50, 50) point1:self.point1 point2:self.point2 inset:0.1];
 }
 
 @end
