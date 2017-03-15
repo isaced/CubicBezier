@@ -196,15 +196,15 @@
         self.bezierDataPoint2 = bezierPoint;
     }else if(self.blankTouchUp) {
         // 没点到点上，查找最近的点
-        double dist1 = [self distanceBetween:roundButtonCenter and:self.bezierDataPoint1];
-        double dist2 = [self distanceBetween:roundButtonCenter and:self.bezierDataPoint2];
+        double dist1 = [self distanceBetween:roundButtonCenter and:self.bezierBoardView.point1];
+        double dist2 = [self distanceBetween:roundButtonCenter and:self.bezierBoardView.point2];
         if (dist1 < dist2) {
             self.roundButton1.frame = newFrame;
-            self.bezierDataPoint1 = roundButtonCenter;
+            self.bezierDataPoint1 = bezierPoint;
             self.bezierBoardView.point1 = roundButtonCenterForBoard;
         }else{
             self.roundButton2.frame = newFrame;
-            self.bezierDataPoint2 = roundButtonCenter;
+            self.bezierDataPoint2 = bezierPoint;
             self.bezierBoardView.point2 = roundButtonCenterForBoard;
         }
     }
