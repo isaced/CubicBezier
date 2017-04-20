@@ -16,3 +16,7 @@ CubicBezier Generator for macOS,This Tools is inspired by [cubic-bezier.com](htt
 - iOS/macOS: [CAMediaTimingFunction](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Animation_Types_Timing/Articles/Timing.html)
 
 关于贝塞尔曲线，更多可以参考 [Wiki](https://en.wikipedia.org/wiki/B%C3%A9zier_curve)
+
+## Contact
+
+contact me on [Sina Weibo](http://weibo.com/2034474825). If you find an issue, just [open a ticket](https://github.com/isaced/CubicBezier/issues). Pull requests are warmly welcome as well.
