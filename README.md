@@ -6,7 +6,8 @@ CubicBezier Generator for macOS,This Tools is inspired by [cubic-bezier.com](htt
 
 ## Download
 
-[Release](https://github.com/isaced/CubicBezier/releases)
+- [Dev Release](https://github.com/isaced/CubicBezier/releases)
+- [App Store](https://itunes.apple.com/us/app/cubicbezier/id1228492117?l=zh&ls=1&mt=12)
 
 ## About
 
