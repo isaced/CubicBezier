@@ -204,6 +204,16 @@
         roundButtonCenter.x = self.bezierBoardView.frame.origin.x + self.bezierBoardView.frame.size.width - RoundButtonDiameter / 2.0;
         roundButtonCenterForBoard.x = self.bezierBoardView.frame.size.width;
     }
+    if (bezierPoint.y < 0) {
+        bezierPoint.y = 0;
+        roundButtonCenter.y = self.bezierBoardView.frame.origin.y - RoundButtonDiameter / 2.0;
+        roundButtonCenterForBoard.y = 0;
+    }
+    if (bezierPoint.y > 1) {
+        bezierPoint.y = 1;
+        roundButtonCenter.y = self.bezierBoardView.frame.origin.y + self.bezierBoardView.frame.size.height - RoundButtonDiameter / 2.0;
+        roundButtonCenterForBoard.y = self.bezierBoardView.frame.size.height;
+    }
     
     // 给予新的位置和重绘点，记录贝塞尔曲线点
     CGRect newFrame = CGRectMake(roundButtonCenter.x, roundButtonCenter.y, RoundButtonDiameter, RoundButtonDiameter);
