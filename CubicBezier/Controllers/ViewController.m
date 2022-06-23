@@ -238,6 +238,7 @@
     self.bezierTextField.stringValue = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2f",self.bezierDataPoint1.x,self.bezierDataPoint1.y,self.bezierDataPoint2.x,self.bezierDataPoint2.y];
     
     [self.view setNeedsDisplay:YES];
+    [self.bezierBoardView setNeedsDisplay:YES];
     [self updateBezierThumbnailsAll:NO];
 }
 
