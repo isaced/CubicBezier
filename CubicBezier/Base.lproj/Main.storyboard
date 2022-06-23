@@ -257,14 +257,6 @@
                                     <action selector="goAnimation:" target="XfG-lQ-9wD" id="B4O-Sw-Z5a"/>
                                 </connections>
                             </button>
-                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtr-5m-5mq">
-                                <rect key="frame" x="309" y="190" width="94" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="0.10000000000000001" maxValue="6" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="rcp-LA-fZP"/>
-                                <connections>
-                                    <action selector="speedSliderAction:" target="XfG-lQ-9wD" id="qyE-qm-nhp"/>
-                                </connections>
-                            </slider>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4s-2o-tak">
                                 <rect key="frame" x="423" y="154" width="37" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -295,6 +287,14 @@
                                 </view>
                                 <font key="titleFont" metaFont="systemUltraLight" size="12"/>
                             </box>
+                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kDN-Mn-WSx">
+                                <rect key="frame" x="309" y="185" width="105" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="0.10000000000000001" maxValue="6" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="tEI-b6-G8z"/>
+                                <connections>
+                                    <action selector="speedSliderAction:" target="XfG-lQ-9wD" id="nR6-01-pne"/>
+                                </connections>
+                            </slider>
                         </subviews>
                     </view>
                     <connections>
@@ -304,7 +304,7 @@
                         <outlet property="bezierPreview1" destination="qja-dY-PiK" id="g7g-E9-x9e"/>
                         <outlet property="bezierPreview2" destination="m86-Fc-0mH" id="C7a-kx-o59"/>
                         <outlet property="bezierTextField" destination="2hL-Fp-hmc" id="yX4-sg-WOf"/>
-                        <outlet property="speedSlider" destination="dtr-5m-5mq" id="1iS-a0-Mgk"/>
+                        <outlet property="speedSlider" destination="kDN-Mn-WSx" id="CZd-mz-eB2"/>
                         <outlet property="speedTextField" destination="4aX-Yo-Qsh" id="cxe-ew-X53"/>
                     </connections>
                 </viewController>
