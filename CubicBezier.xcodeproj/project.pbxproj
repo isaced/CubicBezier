@@ -18,20 +18,9 @@
 		B9D1E5FB1AA186C5000C5854 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E5FA1AA186C5000C5854 /* main.m */; };
 		B9D1E6001AA186C5000C5854 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9D1E5FF1AA186C5000C5854 /* Images.xcassets */; };
 		B9D1E6031AA186C5000C5854 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D1E6011AA186C5000C5854 /* Main.storyboard */; };
-		B9D1E60F1AA186C5000C5854 /* CubicBezierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E60E1AA186C5000C5854 /* CubicBezierTests.m */; };
 		B9D1E61B1AA186EE000C5854 /* BezierBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E61A1AA186EE000C5854 /* BezierBoardView.m */; };
 		B9D1E61E1AA18708000C5854 /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D1E61D1AA18708000C5854 /* RoundButton.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B9D1E6091AA186C5000C5854 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B9D1E5EA1AA186C4000C5854 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B9D1E5F11AA186C4000C5854;
-			remoteInfo = CubicBezier;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0B509B881E79348D00EFA64C /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
@@ -45,16 +34,15 @@
 		0B509B961E793F2F00EFA64C /* ControlPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlPoint.m; sourceTree = "<group>"; };
 		0BCAB5441E78F5180038DDC1 /* BezierThumbnailsPainter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierThumbnailsPainter.h; sourceTree = "<group>"; };
 		0BCAB5451E78F5180038DDC1 /* BezierThumbnailsPainter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierThumbnailsPainter.m; sourceTree = "<group>"; };
+		0D12383B2864C0A600F686B1 /* CubicBezier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CubicBezier.entitlements; sourceTree = "<group>"; };
 		B94C6F1B1AA40EFE001F84A7 /* BezierPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierPreviewView.h; sourceTree = "<group>"; };
 		B94C6F1C1AA40EFE001F84A7 /* BezierPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierPreviewView.m; sourceTree = "<group>"; };
 		B9D1E5F21AA186C5000C5854 /* CubicBezier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubicBezier.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B9D1E5F61AA186C5000C5854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9D1E5F71AA186C5000C5854 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9D1E5F81AA186C5000C5854 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B9D1E5FA1AA186C5000C5854 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B9D1E5FF1AA186C5000C5854 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B9D1E6021AA186C5000C5854 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B9D1E6081AA186C5000C5854 /* CubicBezierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CubicBezierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D1E60D1AA186C5000C5854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9D1E60E1AA186C5000C5854 /* CubicBezierTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubicBezierTests.m; sourceTree = "<group>"; };
 		B9D1E6191AA186EE000C5854 /* BezierBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierBoardView.h; sourceTree = "<group>"; };
@@ -65,13 +53,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		B9D1E5EF1AA186C4000C5854 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B9D1E6051AA186C5000C5854 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -133,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				B9D1E5F21AA186C5000C5854 /* CubicBezier.app */,
-				B9D1E6081AA186C5000C5854 /* CubicBezierTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +121,7 @@
 		B9D1E5F41AA186C5000C5854 /* CubicBezier */ = {
 			isa = PBXGroup;
 			children = (
+				0D12383B2864C0A600F686B1 /* CubicBezier.entitlements */,
 				0B509B941E793F2300EFA64C /* Models */,
 				0BCAB5431E78F4B20038DDC1 /* Utils */,
 				B9D1E6181AA186DE000C5854 /* Views */,
@@ -157,7 +138,6 @@
 		B9D1E5F51AA186C5000C5854 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B9D1E5F61AA186C5000C5854 /* Info.plist */,
 				B9D1E5FA1AA186C5000C5854 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -214,24 +194,6 @@
 			productReference = B9D1E5F21AA186C5000C5854 /* CubicBezier.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B9D1E6071AA186C5000C5854 /* CubicBezierTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B9D1E6151AA186C5000C5854 /* Build configuration list for PBXNativeTarget "CubicBezierTests" */;
-			buildPhases = (
-				B9D1E6041AA186C5000C5854 /* Sources */,
-				B9D1E6051AA186C5000C5854 /* Frameworks */,
-				B9D1E6061AA186C5000C5854 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B9D1E60A1AA186C5000C5854 /* PBXTargetDependency */,
-			);
-			name = CubicBezierTests;
-			productName = CubicBezierTests;
-			productReference = B9D1E6081AA186C5000C5854 /* CubicBezierTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -242,16 +204,13 @@
 				TargetAttributes = {
 					B9D1E5F11AA186C4000C5854 = {
 						CreatedOnToolsVersion = 6.1.1;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = S4XH6LVQ6A;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
 							};
 						};
-					};
-					B9D1E6071AA186C5000C5854 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = B9D1E5F11AA186C4000C5854;
 					};
 				};
 			};
@@ -269,7 +228,6 @@
 			projectRoot = "";
 			targets = (
 				B9D1E5F11AA186C4000C5854 /* CubicBezier */,
-				B9D1E6071AA186C5000C5854 /* CubicBezierTests */,
 			);
 		};
 /* End PBXProject section */
@@ -282,13 +240,6 @@
 				B9D1E6001AA186C5000C5854 /* Images.xcassets in Resources */,
 				0B509B931E7938C700EFA64C /* LibraryCollectionViewItem.xib in Resources */,
 				B9D1E6031AA186C5000C5854 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B9D1E6061AA186C5000C5854 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,23 +263,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B9D1E6041AA186C5000C5854 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B9D1E60F1AA186C5000C5854 /* CubicBezierTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B9D1E60A1AA186C5000C5854 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B9D1E5F11AA186C4000C5854 /* CubicBezier */;
-			targetProxy = B9D1E6091AA186C5000C5854 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B9D1E6011AA186C5000C5854 /* Main.storyboard */ = {
@@ -346,7 +281,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -373,9 +307,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -401,7 +336,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -431,7 +365,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -449,13 +383,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = CubicBezier/CubicBezier.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = CubicBezier/Info.plist;
+				DEVELOPMENT_TEAM = S4XH6LVQ6A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cubic Bezier";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.isaced.$(PRODUCT_NAME:rfc1034identifier)";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.isaced.CubicBezier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -465,55 +408,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = CubicBezier/CubicBezier.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = CubicBezier/Info.plist;
+				DEVELOPMENT_TEAM = S4XH6LVQ6A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cubic Bezier";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.isaced.$(PRODUCT_NAME:rfc1034identifier)";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.isaced.CubicBezier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-			};
-			name = Release;
-		};
-		B9D1E6161AA186C5000C5854 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CubicBezierTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.isaced.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CubicBezier.app/Contents/MacOS/CubicBezier";
-			};
-			name = Debug;
-		};
-		B9D1E6171AA186C5000C5854 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = CubicBezierTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.isaced.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CubicBezier.app/Contents/MacOS/CubicBezier";
 			};
 			name = Release;
 		};
@@ -534,15 +446,6 @@
 			buildConfigurations = (
 				B9D1E6131AA186C5000C5854 /* Debug */,
 				B9D1E6141AA186C5000C5854 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B9D1E6151AA186C5000C5854 /* Build configuration list for PBXNativeTarget "CubicBezierTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B9D1E6161AA186C5000C5854 /* Debug */,
-				B9D1E6171AA186C5000C5854 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
